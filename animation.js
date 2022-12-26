@@ -62,6 +62,8 @@ function addValue(value) {
     const row = document.createElement("tr");
     const valueCell = document.createElement("td");
     const hashCell = document.createElement("td");
+    valueCell.style.fontWeight = "bold";
+    hashCell.style.fontWeight = "bold";
 
     valueCell.textContent = value;
     hashCell.textContent = bucket;
@@ -106,6 +108,7 @@ function addNewNode(position) {
         const row = rows[i];
         const oldValueCell = row.getElementsByTagName("td")[0];
         const hashedValueCell = row.getElementsByTagName("td")[1];
+
         const oldValue = oldValueCell.textContent;
         let hashedValue = hash(oldValue);
 
@@ -115,6 +118,11 @@ function addNewNode(position) {
             continue;
         }
         const newValueCell = row.insertCell(1);
+        
+        oldValueCell.style.fontWeight = "bold";
+        hashedValueCell.style.fontWeight = "normal";
+        newValueCell.style.fontWeight = "bold";
+
         newValueCell.textContent = hashedValue;
     }
 
